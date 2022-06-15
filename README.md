@@ -13,21 +13,30 @@ First you need to have the `CMAKE` with a C++ compiler to compiler.
 
 You will create the `build folder` on this cloned project folder. You can do it with this command on your terminal:
 
+```cmd
+mkdir build
 ```
-$ mkdir build
+
+After you will go to build.
+
+```cmd
+cd build
 ```
 
 After, you will compilate with CMAKE with this:
 
+```cmd
+cmake ..
 ```
-$ cmake ..
-```
-```
-$ cmake --build .
+
+And you will run the following code.
+
+```cmd
+cmake --build .
 ```
 
 Now you finally can run with following command to run the program:
 
-```
-$ ./dnaprofiler.exe -d data/data.csv -s data/sequence_alice.txt
+```cmd
+./dnaprofiler.exe -d data/data.csv -s data/sequence_alice.txt
 ```
