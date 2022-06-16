@@ -1,23 +1,23 @@
 #include "unknownProfile.h"
 
 UnknownProfile::UnknownProfile(int argc, char *argv[]) {
-    if(isArgumentsValids(argc, argv))
-        cout << "> Loading the DNA database [" << data_file_name << "]..." << endl;
+    if(isExecutionArgumentsValids(argc, argv))
+        cout << "> Loading the DNA database [" << "data_file_name" << "]..." << endl;
     else
-        cout << "The argument [" << DATABASE_ARGUMENT_NAME << "] or [" << DATABASE_SEQUENCE_NAME << "] is missing in execution." << endl;
+        cout << "Error with arguments in execution." << endl;
 }
 
-bool UnknownProfile::isArgumentsValids(int argc, char *argv[]) {
+bool UnknownProfile::isExecutionArgumentsValids(int argc, char *argv[]) {
+    bool isDatabaseArgumentNameFound, isSequenceArgumentNameFound;
     if(argc >= 4) {
-        for(int i=0; i < argc - 1; i++){
+        for(int i=0; i < argc - 1; i++) {
             if(argv[i] == DATABASE_ARGUMENT_NAME)
-                data_file_name = argv[i+1];
-            else if(argv[i] == DATABASE_SEQUENCE_NAME)
-                sequence_file_name = argv[i+1];
+                isDatabaseArgumentNameFound = true;
+            if(argv[i] == SEQUENCE_ARGUMENT_NAME)
+                isSequenceArgumentNameFound = true;
         }
     }
-    if(data_file_name.size() > 0 && sequence_file_name.size() > 0)
+    if(isDatabaseArgumentNameFound && isSequenceArgumentNameFound)
         return true;
-    else
-        return false;
+    return false;
 }
