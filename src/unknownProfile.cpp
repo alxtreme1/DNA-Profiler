@@ -8,7 +8,7 @@ UnknownProfile::UnknownProfile(int argc, char *argv[]) {
 }
 
 bool UnknownProfile::isExecutionArgumentsValids(int argc, char *argv[]) {
-    bool isDatabaseArgumentNameFound, isSequenceArgumentNameFound;
+    bool isDatabaseArgumentNameFound=false, isSequenceArgumentNameFound=false;
     if(argc >= 4) {
         for(int i=0; i < argc - 1; i++) {
             if(argv[i] == DATABASE_ARGUMENT_NAME)
