@@ -8,10 +8,19 @@ using std::endl;
 #include <string>
 using std::string;
 
+#include <vector>
+using std::vector;
+
+#include <map>
+using std::map;
+
 class UnknownProfile {
     private:
-        const string DATABASE_ARGUMENT_NAME = "-d";
-        const string SEQUENCE_ARGUMENT_NAME = "-s";
+        const vector<string> EXPECTED_ARGUMENTS = {
+            "-d",
+            "-s"
+        };
+        map<string, string> file_names;
         string data_file_name, sequence_file_name;
         bool isExecutionArgumentsValids(int argc, char *argv[]);
     public:
