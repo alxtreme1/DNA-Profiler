@@ -11,10 +11,14 @@ bool UnknownProfile::isExecutionArgumentsValids(int argc, char *argv[]) {
     bool isDatabaseArgumentNameFound=false, isSequenceArgumentNameFound=false;
     if(argc >= 4) {
         for(int i=0; i < argc - 1; i++) {
-            if(argv[i] == DATABASE_ARGUMENT_NAME)
+            if(argv[i] == DATABASE_ARGUMENT_NAME) {
                 isDatabaseArgumentNameFound = true;
-            else if(argv[i] == SEQUENCE_ARGUMENT_NAME)
+                break;
+            }
+            else if(argv[i] == SEQUENCE_ARGUMENT_NAME) {
                 isSequenceArgumentNameFound = true;
+                break;
+            }
         }
     }
     if(isDatabaseArgumentNameFound && isSequenceArgumentNameFound)
