@@ -14,6 +14,9 @@ using std::vector;
 #include <map>
 using std::map;
 
+#include "fstream"
+using std::fstream;
+
 class UnknownProfile {
     private:
         const vector<string> EXPECTED_ARGUMENTS = {
@@ -21,7 +24,6 @@ class UnknownProfile {
             "-s"
         };
         map<string, string> file_names;
-        string data_file_name, sequence_file_name;
         bool isExecutionArgumentsValids(int argc, char *argv[]);
     public:
         UnknownProfile(int argc, char *argv[]);
