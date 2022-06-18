@@ -2,15 +2,7 @@
 
 UnknownProfile::UnknownProfile(int argc, char *argv[]) {
     if(isExecutionArgumentsValids(argc, argv)) {
-        fstream data_file("../" + file_names[EXPECTED_ARGUMENTS.at(0)]), sequence_file("../" + file_names[EXPECTED_ARGUMENTS.at(1)]);
-        cout << "> Loading the DNA database [" << file_names[EXPECTED_ARGUMENTS.at(0)] << "]..." << endl;
-        cout << "> Loading the unknown DNA sequence [" << file_names[EXPECTED_ARGUMENTS.at(1)] << "]..." << endl;
-        if(data_file.is_open() && sequence_file.is_open())
-            cout << "> Input files successfully loaded." << endl;
-        else
-            cout << "> A input file don't exist." << endl;
-        data_file.close();
-        sequence_file.close();
+        read_STR_Files();
     }
     else
         cout << "Error with arguments in execution." << endl;
@@ -30,4 +22,16 @@ bool UnknownProfile::isExecutionArgumentsValids(int argc, char *argv[]) {
     if(file_names.size() == EXPECTED_ARGUMENTS.size())
         return true;
     return false;
+}
+
+void UnknownProfile::read_STR_Files() {
+    fstream data_file("../" + file_names[EXPECTED_ARGUMENTS.at(0)]), sequence_file("../" + file_names[EXPECTED_ARGUMENTS.at(1)]);
+    cout << "> Loading the DNA database [" << file_names[EXPECTED_ARGUMENTS.at(0)] << "]..." << endl;
+    cout << "> Loading the unknown DNA sequence [" << file_names[EXPECTED_ARGUMENTS.at(1)] << "]..." << endl;
+    if(data_file.is_open() && sequence_file.is_open())
+        cout << "> Input files successfully loaded." << endl;
+    else
+        cout << "> A input file don't exist." << endl;
+    data_file.close();
+    sequence_file.close();
 }

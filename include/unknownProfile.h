@@ -25,6 +25,7 @@ class UnknownProfile {
         };
         map<string, string> file_names;
         bool isExecutionArgumentsValids(int argc, char *argv[]);
+        void read_STR_Files();
     public:
         UnknownProfile(int argc, char *argv[]);
 };
