@@ -28,10 +28,32 @@ void UnknownProfile::read_STR_Files() {
     fstream data_file("../" + file_names[EXPECTED_ARGUMENTS.at(0)]), sequence_file("../" + file_names[EXPECTED_ARGUMENTS.at(1)]);
     cout << "> Loading the DNA database [" << file_names[EXPECTED_ARGUMENTS.at(0)] << "]..." << endl;
     cout << "> Loading the unknown DNA sequence [" << file_names[EXPECTED_ARGUMENTS.at(1)] << "]..." << endl;
-    if(data_file.is_open() && sequence_file.is_open())
+    if(data_file.is_open() && sequence_file.is_open()) {
         cout << "> Input files successfully loaded." << endl;
+        processPeople_STRsData(&data_file);
+    }
     else
         cout << "> A input file don't exist." << endl;
     data_file.close();
     sequence_file.close();
+}
+
+void UnknownProfile::processPeople_STRsData(fstream *file) {
+    string line, strsLine;
+    stringstream ssSTR;
+    getline(*file, line);
+    strsLine = line;
+    while(getline(*file, line)) {
+        PersonProfile person;
+        string strQuantitie, strName, personName;
+        stringstream ssPerson(line), ssStr(strsLine);
+        getline(ssPerson, personName, ',');
+        getline(ssStr, strName, ',');
+        person.setName(personName);
+        while(getline(ssPerson, strQuantitie, ',') && getline(ssStr, strName, ',')) {
+            person.addSTR(strName, stoi(strQuantitie));
+            peopleDatabase.push_back(person);
+        }
+        cout << endl;
+    }
 }
