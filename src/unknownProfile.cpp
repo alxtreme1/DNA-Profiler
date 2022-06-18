@@ -54,6 +54,5 @@ void UnknownProfile::processPeople_STRsData(fstream *file) {
             person.addSTR(strName, stoi(strQuantitie));
             peopleDatabase.push_back(person);
         }
-        cout << endl;
     }
 }
