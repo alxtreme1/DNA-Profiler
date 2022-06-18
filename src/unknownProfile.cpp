@@ -41,6 +41,7 @@ void UnknownProfile::read_STR_Files() {
 
     if(data_file.is_open() && sequence_file.is_open()) {
         cout << "> Input files successfully loaded." << endl;
+        cout << endl;
         processPeople_STRsData(&data_file);
     }
     else
@@ -55,6 +56,7 @@ void UnknownProfile::processPeople_STRsData(fstream *file) {
     string line, strsLine;
     stringstream ssSTR;
 
+    cout << "> Processing data, please wait..." << endl;
     getline(*file, line);
     strsLine = line;
 
