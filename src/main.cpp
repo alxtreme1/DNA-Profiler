@@ -14,13 +14,14 @@ int main(int argc, char *argv[]) {
         "-d",
         "-s"
     };
-    Manager manager;
-    map<string, string> file_names;
     PeopleData people;
+    Manager manager(&people);
+    // Manager manager(people, sequence);
+    map<string, string> file_names;
 
     file_names = manager.getFileNames(argc, argv, EXPECTED_ARGUMENTS);
     manager.openFiles(file_names, EXPECTED_ARGUMENTS);
-    manager.proccessData(people);
+    manager.proccessData();
     
     return 0;
 }

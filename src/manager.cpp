@@ -2,6 +2,10 @@
 #include "peopleData.h"
 #include "output.h"
 
+Manager::Manager(PeopleData *p) {
+    people = p;
+}
+
 map<string, string> Manager::getFileNames(int argc, char *argv[], const vector<string> EXPECTED_ARGUMENTS) {
     map<string, string> file_names;
 
@@ -29,11 +33,11 @@ bool Manager::ExecutionArgumentsValidation(map<string, string> file, const vecto
 
 }
 
-void Manager::proccessData(PeopleData people) {
+void Manager::proccessData() {
     if(isExecutionArgumentsValids) {
         if(data_file.is_open() && sequence_file.is_open()) {
             output.inputSuccessLoadedMessage();
-            people.proccessPeopleData(&data_file);
+            people->proccessPeopleData(&data_file);
         }
         else
             output.someFilesDontExistMessage();

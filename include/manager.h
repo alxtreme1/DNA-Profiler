@@ -27,16 +27,16 @@ using std::stringstream;
 class Manager {
     private:
         Output output;
+        PeopleData *people;
         fstream data_file;
         fstream sequence_file;
         bool isExecutionArgumentsValids;
     public:
+        Manager(PeopleData *p);
         map<string, string> getFileNames(int argc, char *argv[], const vector<string> EXPECTED_ARGUMENTS);
-        void proccessData(PeopleData people);
+        void proccessData();
         bool ExecutionArgumentsValidation(map<string, string> file, const vector<string> EXPECTED_ARGUMENTS);
         bool isFilesOpen();
-        // fstream getDataFile(map<string, string> file_names, const vector<string> EXPECTED_ARGUMENTS);
-        // fstream getSequenceFile(map<string, string> file_names, const vector<string> EXPECTED_ARGUMENTS);
         void openFiles(map<string, string> file_names, const vector<string> EXPECTED_ARGUMENTS);
         void closeFiles();
 };
