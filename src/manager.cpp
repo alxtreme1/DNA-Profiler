@@ -45,16 +45,18 @@ void Manager::proccessData() {
         data_file.close();
         sequence_file.close();
     }
-    else
-        output.errorWithArgumentsMessage();
 }
 
 void Manager::openFiles(map<string, string> file_names, const vector<string> EXPECTED_ARGUMENTS) {
-    data_file.open("../"+ file_names[EXPECTED_ARGUMENTS.at(0)]);
-    sequence_file.open("../"+ file_names[EXPECTED_ARGUMENTS.at(1)]);
-        
-    output.loadingDNA_DatabaseMessage(file_names[EXPECTED_ARGUMENTS.at(0)]);
-    output.loadingSequenceDatabaseMessage(file_names[EXPECTED_ARGUMENTS.at(1)]);
+    if(isExecutionArgumentsValids) {
+        data_file.open("../"+ file_names[EXPECTED_ARGUMENTS.at(0)]);
+        sequence_file.open("../"+ file_names[EXPECTED_ARGUMENTS.at(1)]);
+            
+        output.loadingDNA_DatabaseMessage(file_names[EXPECTED_ARGUMENTS.at(0)]);
+        output.loadingSequenceDatabaseMessage(file_names[EXPECTED_ARGUMENTS.at(1)]);
+    }
+    else
+        output.errorWithArgumentsMessage();
 }
 
 void Manager::closeFiles() {
