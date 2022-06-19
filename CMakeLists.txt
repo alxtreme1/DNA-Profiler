@@ -20,9 +20,10 @@ add_executable( ${APP_NAME}
 
 
 
-target_sources( ${APP_NAME} PUBLIC ${SRC_DIR}/unknownProfile.cpp )
+target_sources( ${APP_NAME} PUBLIC ${SRC_DIR}/manager.cpp )
 target_sources( ${APP_NAME} PUBLIC ${SRC_DIR}/personProfile.cpp )
-
+target_sources( ${APP_NAME} PUBLIC ${SRC_DIR}/peopleData.cpp )
+target_sources( ${APP_NAME} PUBLIC ${SRC_DIR}/output.cpp )
 
 
 set_property(TARGET ${APP_NAME} PROPERTY CXX_STANDARD 11)
