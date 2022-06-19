@@ -9,6 +9,7 @@ void Output::loadingSequenceDatabaseMessage(string file_name) {
 
 void Output::inputSuccessLoadedMessage() {
     cout << "> Input files successfully loaded." << endl;
+    cout << endl;
 }
 
 void Output::someFilesDontExistMessage() {

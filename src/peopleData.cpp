@@ -1,10 +1,9 @@
 #include "peopleData.h"
 
-void PeopleData::processPeople_STRsData(fstream *file) {
+void PeopleData::proccessPeopleData(fstream *file) {
     string line, strsLine;
     stringstream ssSTR;
     output.processingMessage();
-    // cout << "> Processing data, please wait..." << endl;
     getline(*file, line);
     strsLine = line;
 

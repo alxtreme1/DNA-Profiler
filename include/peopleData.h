@@ -25,7 +25,7 @@ class PeopleData {
         Output output;
         vector<PersonProfile> peopleDatabase;
     public:
-        void processPeople_STRsData(fstream *file);
+        void proccessPeopleData(fstream *file);
 };
 
 #endif
