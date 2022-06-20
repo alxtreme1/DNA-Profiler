@@ -26,18 +26,23 @@ using std::stringstream;
 
 class Manager {
     private:
+        const vector<string> EXPECTED_ARGUMENTS = {
+            "-d",
+            "-s"
+        };
+        map<string, string> file_names;
         Output output;
         PeopleData *people;
         fstream data_file;
         fstream sequence_file;
         bool isExecutionArgumentsValids;
     public:
-        Manager(PeopleData *p);
-        map<string, string> getFileNames(int argc, char *argv[], const vector<string> EXPECTED_ARGUMENTS);
+        Manager(PeopleData *p, int argc, char *argv[]);
+        void setFileNames(int argc, char *argv[]);
         void proccessData();
-        bool ExecutionArgumentsValidation(map<string, string> file, const vector<string> EXPECTED_ARGUMENTS);
+        bool ExecutionArgumentsValidation();
         bool isFilesOpen();
-        void openFiles(map<string, string> file_names, const vector<string> EXPECTED_ARGUMENTS);
+        void openFiles();
         void closeFiles();
 };
 

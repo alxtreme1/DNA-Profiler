@@ -2,12 +2,12 @@
 #include "peopleData.h"
 #include "output.h"
 
-Manager::Manager(PeopleData *p) {
+Manager::Manager(PeopleData *p, int argc, char *argv[]) {
     people = p;
+    setFileNames(argc, argv);
 }
 
-map<string, string> Manager::getFileNames(int argc, char *argv[], const vector<string> EXPECTED_ARGUMENTS) {
-    map<string, string> file_names;
+void Manager::setFileNames(int argc, char *argv[]) {
 
     if(argc >= int(EXPECTED_ARGUMENTS.size()) * 2) {
 
@@ -21,13 +21,12 @@ map<string, string> Manager::getFileNames(int argc, char *argv[], const vector<s
         }
 
     }
-    isExecutionArgumentsValids = ExecutionArgumentsValidation(file_names, EXPECTED_ARGUMENTS);
-    return file_names;
+    isExecutionArgumentsValids = ExecutionArgumentsValidation();
 }
 
-bool Manager::ExecutionArgumentsValidation(map<string, string> file, const vector<string> EXPECTED_ARGUMENTS) {
+bool Manager::ExecutionArgumentsValidation() {
 
-    if(file.size() == EXPECTED_ARGUMENTS.size())
+    if(file_names.size() == EXPECTED_ARGUMENTS.size())
         return true;
     return false;
 
@@ -47,7 +46,7 @@ void Manager::proccessData() {
     }
 }
 
-void Manager::openFiles(map<string, string> file_names, const vector<string> EXPECTED_ARGUMENTS) {
+void Manager::openFiles() {
     if(isExecutionArgumentsValids) {
         data_file.open("../"+ file_names[EXPECTED_ARGUMENTS.at(0)]);
         sequence_file.open("../"+ file_names[EXPECTED_ARGUMENTS.at(1)]);
