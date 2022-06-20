@@ -24,3 +24,14 @@ void PeopleData::proccessPeopleData(fstream *file) {
     }
 
 }
+
+void PeopleData::printPeopleData() {
+    for(auto it = peopleDatabase.begin(); it != peopleDatabase.end(); ++it) {
+        cout << "Nome: " << it->getName() << endl;
+        // auto strs = it->getSTRs();
+        // for(auto it2 = strs.begin(); it2 != strs.end(); ++it2) {       
+        //     cout << "STR: " << it2->first << ", Qtd: " << it2->second << "\t";
+        // }
+        // cout << endl;
+    }
+}

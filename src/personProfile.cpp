@@ -15,3 +15,7 @@ string PersonProfile::getName() {
 int PersonProfile::get_STR_quantitieByName(string strName) {
     return strsDatabase[strName];
 }
+
+map<string, int> PersonProfile::getSTRs() {
+    return strsDatabase;
+}

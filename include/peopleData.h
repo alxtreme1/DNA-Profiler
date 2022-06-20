@@ -26,6 +26,7 @@ class PeopleData {
         vector<PersonProfile> peopleDatabase;
     public:
         void proccessPeopleData(fstream *file);
+        void printPeopleData();
 };
 
 #endif

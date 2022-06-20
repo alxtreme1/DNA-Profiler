@@ -2,8 +2,9 @@
 #include "peopleData.h"
 #include "output.h"
 
-Manager::Manager(PeopleData *p, int argc, char *argv[]) {
+Manager::Manager(PeopleData *p, SequenceData *s, int argc, char *argv[]) {
     people = p;
+    sequence = s;
     setFileNames(argc, argv);
 }
 
@@ -37,12 +38,12 @@ void Manager::proccessData() {
         if(data_file.is_open() && sequence_file.is_open()) {
             output.inputSuccessLoadedMessage();
             people->proccessPeopleData(&data_file);
+            sequence->proccessSequenceData(&sequence_file);
         }
         else
             output.someFilesDontExistMessage();
 
-        data_file.close();
-        sequence_file.close();
+        closeFiles();
     }
 }
 

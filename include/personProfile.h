@@ -19,6 +19,7 @@ class PersonProfile {
         void addSTR(string name_, int quantitie);
         string getName();
         int get_STR_quantitieByName(string strName);
+        map<string, int> getSTRs();
 };
 
 #endif

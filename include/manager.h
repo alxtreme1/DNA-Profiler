@@ -2,6 +2,7 @@
 #define MANAGER
 
 #include "peopleData.h"
+#include "sequenceData.h"
 
 #include "output.h"
 
@@ -33,11 +34,12 @@ class Manager {
         map<string, string> file_names;
         Output output;
         PeopleData *people;
+        SequenceData *sequence;
         fstream data_file;
         fstream sequence_file;
         bool isExecutionArgumentsValids;
     public:
-        Manager(PeopleData *p, int argc, char *argv[]);
+        Manager(PeopleData *p, SequenceData *s, int argc, char *argv[]);
         void setFileNames(int argc, char *argv[]);
         void proccessData();
         bool ExecutionArgumentsValidation();

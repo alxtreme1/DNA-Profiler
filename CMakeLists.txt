@@ -24,6 +24,7 @@ target_sources( ${APP_NAME} PUBLIC ${SRC_DIR}/manager.cpp )
 target_sources( ${APP_NAME} PUBLIC ${SRC_DIR}/personProfile.cpp )
 target_sources( ${APP_NAME} PUBLIC ${SRC_DIR}/peopleData.cpp )
 target_sources( ${APP_NAME} PUBLIC ${SRC_DIR}/output.cpp )
+target_sources( ${APP_NAME} PUBLIC ${SRC_DIR}/sequenceData.cpp )
 
 
 set_property(TARGET ${APP_NAME} PROPERTY CXX_STANDARD 11)
