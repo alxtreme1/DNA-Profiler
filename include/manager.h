@@ -46,6 +46,7 @@ class Manager {
         bool isFilesOpen();
         void openFiles();
         void closeFiles();
+        void DNA_Profiling();
 };
 
 #endif

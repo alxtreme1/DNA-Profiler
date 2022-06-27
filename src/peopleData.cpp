@@ -35,3 +35,11 @@ void PeopleData::printPeopleData() {
         cout << endl;
     }
 }
+
+vector<PersonProfile> PeopleData::getPeopleDatabase() {
+    return peopleDatabase;
+}
+
+void PeopleData::setIdentifiedProfile(PersonProfile p) {
+    idenfiedProfile = p;
+}
