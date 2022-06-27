@@ -63,3 +63,58 @@ void Manager::closeFiles() {
     data_file.close();
     sequence_file.close();
 }
+
+void Manager::DNA_Profiling() {
+    
+    map<string, int> str_quantity;
+
+    vector<PersonProfile> people_ = people->getPeopleDatabase();
+    map<string, int> strs_ = people->getPeopleDatabase().begin()->getSTRs();
+    string sequence_ = sequence->getSequence();
+
+    output.DNA_ProfilingMessage();
+
+    for(map<string, int>::iterator strs_it = strs_.begin(); strs_it != strs_.end(); ++strs_it) {
+
+        int count_max = 0;
+        int count = 0;
+
+        for(int seq_it = 3; seq_it < int(sequence_.length()); seq_it++) {
+            
+            if(sequence_[seq_it - 3] == strs_it->first[0] &&
+            sequence_[seq_it - 2] == strs_it->first[1] &&
+            sequence_[seq_it - 1] == strs_it->first[2] &&
+            sequence_[seq_it] == strs_it->first[3]) {
+                seq_it += strs_it->first.size() - 1;
+                count++;
+                if(count > count_max) {
+                    count_max = count;
+                    str_quantity[strs_it->first] = count_max;
+                }
+            }
+            else {
+                count = 0;
+            }
+        }
+        count_max = 0;
+        count = 0;
+    }
+
+    for(auto people_it = people_.begin(); people_it != people_.end(); ++people_it) {
+        int count_equal = 0;
+        auto strs_person = people_it->getSTRs();
+
+        for(auto strs_it = strs_person.begin(); strs_it != strs_person.end(); ++strs_it) {
+            if(strs_it->second == str_quantity[strs_it->first])
+                count_equal++;
+        }
+        if(count_equal == signed(str_quantity.size())) {
+            people->setIdentifiedProfile(*people_it);
+            output.foundPersonMessage(people_it->getName());
+            return;
+        }
+    }
+
+    output.notFoundPersonMessage();
+
+}

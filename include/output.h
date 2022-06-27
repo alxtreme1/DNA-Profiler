@@ -16,6 +16,9 @@ class Output{
         void someFilesDontExistMessage();
         void errorWithArgumentsMessage();
         void processingMessage();
+        void DNA_ProfilingMessage();
+        void foundPersonMessage(string p);
+        void notFoundPersonMessage();
 };
 
 

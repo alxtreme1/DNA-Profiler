@@ -7,3 +7,7 @@ void SequenceData::proccessSequenceData(fstream *file) {
 void SequenceData::printSequence() {
     cout << sequence << endl;
 }
+
+string SequenceData::getSequence() {
+    return sequence;
+}

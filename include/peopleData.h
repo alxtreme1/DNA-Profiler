@@ -24,9 +24,12 @@ class PeopleData {
     private:
         Output output;
         vector<PersonProfile> peopleDatabase;
+        PersonProfile idenfiedProfile;
     public:
         void proccessPeopleData(fstream *file);
         void printPeopleData();
+        vector<PersonProfile> getPeopleDatabase();
+        void setIdentifiedProfile(PersonProfile p);
 };
 
 #endif

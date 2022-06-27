@@ -23,3 +23,15 @@ void Output::errorWithArgumentsMessage() {
 void Output::processingMessage() {
     cout << "> Processing data, please wait..." << endl;
 }
+
+void Output::DNA_ProfilingMessage() {
+    cout << "> DNA Profiling..." << endl;
+}
+
+void Output::foundPersonMessage(string person_name) {
+    cout << "Identified person: " << person_name << endl;
+}
+
+void Output::notFoundPersonMessage() {
+    cout << "Person not found" << endl;
+}

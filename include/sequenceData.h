@@ -17,6 +17,7 @@ class SequenceData {
     public:
         void proccessSequenceData(fstream *file);
         void printSequence();
+        string getSequence();
 };
 
 #endif

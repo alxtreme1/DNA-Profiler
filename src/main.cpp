@@ -19,8 +19,9 @@ int main(int argc, char *argv[]) {
 
     manager.openFiles();
     manager.proccessData();
-    sequence.printSequence();
-    people.printPeopleData();
+    // sequence.printSequence();
+    // people.printPeopleData();
+    manager.DNA_Profiling();
     
     return 0;
 }
